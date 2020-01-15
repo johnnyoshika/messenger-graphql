@@ -6,6 +6,9 @@ export default {
   },
   Mutation: {
     addChannel: (root, { name }, { models }) => {
+      if (!name)
+        throw new Error('name cannot be empty');
+
       const channel = {
         id: uuidv4(),
         name: name
