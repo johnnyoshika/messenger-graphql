@@ -2,11 +2,11 @@ import { gql } from 'apollo-server-express';
 
 export default gql`
   type Query {
-    me: User
+    channels: [Channel!]
   }
 
-  type User {
+  type Channel {
     id: ID!
-    username: String!
+    name: String
   }
 `;

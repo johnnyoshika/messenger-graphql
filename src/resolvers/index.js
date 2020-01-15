@@ -1,8 +1,5 @@
 export default {
   Query: {
-    me: () => ({
-      id: 1,
-      username: 'johnnyoshika'
-    })
+    channels: (_, __, { models }) => Object.values(models.channels)
   }
 };
