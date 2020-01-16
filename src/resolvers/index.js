@@ -32,7 +32,8 @@ export default {
       const newMessage = {
         id: uuidv4(),
         text: message.text,
-        channelId: message.channelId
+        channelId: message.channelId,
+        createdAt: Math.floor(Date.now())
       };
 
       models.messages[newMessage.id] = newMessage;
@@ -57,13 +58,16 @@ export default {
 
   Channel: {
     messages: (channel, _, { models, dataSources }) => channel.id === '3'
-      ? dataSources.jsonplaceholder.getComments().then(comments => comments.map(c => ({
-        id: `c${c.id}`,
-        text: c.body,
-        channelId: '3'
-      })))
+      ? dataSources.jsonplaceholder.getComments().then(comments => comments
+        .sort((a, b) => b.id - a.id)
+        .map(c => ({
+          id: `c${c.id}`,
+          text: c.body,
+          channelId: '3'
+        }))
+      )
       : Object.values(models.messages).filter(
           m => m.channelId === channel.id
-        )
+        ).sort((a, b) => b.createdAt - a.createdAt)
   }
 };

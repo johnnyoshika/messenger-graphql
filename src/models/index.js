@@ -17,12 +17,14 @@ let messages = {
   1: {
     id: '1',
     text: 'Hello world!',
-    channelId: '1'
+    channelId: '1',
+    createdAt: Math.floor(Date.now()) - 100
   },
   2: {
     id: '2',
     text: 'Wonderful day!',
-    channelId: '2'
+    channelId: '2',
+    createdAt: Math.floor(Date.now()) - 90
   }
 };
 
