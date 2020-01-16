@@ -56,8 +56,14 @@ export default {
   },
 
   Channel: {
-    messages: (channel, _, { models }) => Object.values(models.messages).filter(
-      m => m.channelId === channel.id
-    )
+    messages: (channel, _, { models, dataSources }) => channel.id === '3'
+      ? dataSources.jsonplaceholder.getComments().then(comments => comments.map(c => ({
+        id: `c${c.id}`,
+        text: c.body,
+        channelId: '3'
+      })))
+      : Object.values(models.messages).filter(
+          m => m.channelId === channel.id
+        )
   }
 };

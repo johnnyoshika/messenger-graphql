@@ -6,6 +6,7 @@ import { ApolloServer } from 'apollo-server-express';
 import schema from './schema';
 import resolvers from './resolvers';
 import models from './models';
+import { JSONPlaceholder } from './models/datasources';
 
 const app = express();
 app.use(cors());
@@ -13,6 +14,9 @@ app.use(cors());
 const server = new ApolloServer({
   typeDefs: schema,
   resolvers,
+  dataSources: () => ({
+    jsonplaceholder: new JSONPlaceholder()
+  }),
   context: {
     models
   }

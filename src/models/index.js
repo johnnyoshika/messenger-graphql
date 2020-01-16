@@ -6,6 +6,10 @@ let channels = {
   2: {
     id: '2',
     name: 'basketball'
+  },
+  3: {
+    id: '3',
+    name: 'comments'
   }
 };
 
