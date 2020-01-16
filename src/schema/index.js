@@ -11,6 +11,10 @@ export default gql`
     addMessage(message: MessageInput!): Message
   }
 
+  type Subscription {
+    messageAdded(channelId: ID!): Message
+  }
+
   type Channel {
     id: ID!
     name: String

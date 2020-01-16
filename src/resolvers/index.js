@@ -1,4 +1,7 @@
+import { PubSub, withFilter } from 'apollo-server';
 import uuidv4 from 'uuid/v4';
+
+const pubSub = new PubSub();
 
 export default {
   Query: {
@@ -33,7 +36,22 @@ export default {
       };
 
       models.messages[newMessage.id] = newMessage;
+
+      pubSub.publish('messageAdded', {
+        messageAdded: newMessage,
+        channelId: message.channelId
+      });
+
       return newMessage;
+    }
+  },
+
+  Subscription: {
+    messageAdded: {
+      subscribe: withFilter(
+        () => pubSub.asyncIterator('messageAdded'),
+        (payload, variables) => payload.channelId === variables.channelId
+      )
     }
   },
 
