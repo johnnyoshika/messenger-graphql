@@ -9,6 +9,20 @@ let channels = {
   }
 };
 
+let messages = {
+  1: {
+    id: '1',
+    text: 'Hello world!',
+    channelId: '1'
+  },
+  2: {
+    id: '2',
+    text: 'Wonderful day!',
+    channelId: '2'
+  }
+};
+
 export default {
-  channels
+  channels,
+  messages
 };

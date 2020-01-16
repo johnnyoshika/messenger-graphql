@@ -17,5 +17,11 @@ export default {
       models.channels[channel.id] = channel;
       return channel;
     }
+  },
+
+  Channel: {
+    messages: (channel, _, { models }) => Object.values(models.messages).filter(
+      m => m.channelId === channel.id
+    )
   }
 };

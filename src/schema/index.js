@@ -13,5 +13,11 @@ export default gql`
   type Channel {
     id: ID!
     name: String
+    messages: [Message!]!
+  }
+
+  type Message {
+    id: ID!
+    text: String
   }
 `;
