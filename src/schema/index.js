@@ -19,11 +19,18 @@ export default gql`
     id: ID!
     name: String
     messages: [Message!]!
+    messageFeed(after: String): MessageFeed!
   }
 
   type Message {
     id: ID!
     text: String
+  }
+
+  type MessageFeed {
+    endCursor: String!
+    hasNextPage: Boolean!
+    messages: [Message!]!
   }
 
   input MessageInput {
