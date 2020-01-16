@@ -8,6 +8,7 @@ export default gql`
 
   type Mutation {
     addChannel(name: String!): Channel
+    addMessage(message: MessageInput!): Message
   }
 
   type Channel {
@@ -19,5 +20,10 @@ export default gql`
   type Message {
     id: ID!
     text: String
+  }
+
+  input MessageInput {
+    channelId: ID!
+    text: String!
   }
 `;

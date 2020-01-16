@@ -16,6 +16,24 @@ export default {
       };
       models.channels[channel.id] = channel;
       return channel;
+    },
+
+    addMessage: (root, { message }, { models }) => {
+      const channel = models.channels[message.channelId];
+      if (!channel)
+        throw new Error('Channel not found');
+
+      if (!message.text)
+        throw new Error('text cannot be empty');
+      
+      const newMessage = {
+        id: uuidv4(),
+        text: message.text,
+        channelId: message.channelId
+      };
+
+      models.messages[newMessage.id] = newMessage;
+      return newMessage;
     }
   },
 
