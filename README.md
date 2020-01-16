@@ -1,15 +1,20 @@
-# Simple Node Application
+# GraphQL using Apollo Server and Express
 
-[![Build Status](https://travis-ci.org/rwieruch/minimal-node-application.svg?branch=master)](https://travis-ci.org/rwieruch/minimal-node-application) [![Slack](https://slack-the-road-to-learn-react.wieruch.com/badge.svg)](https://slack-the-road-to-learn-react.wieruch.com/) [![Greenkeeper badge](https://badges.greenkeeper.io/rwieruch/minimal-node-application.svg)](https://greenkeeper.io/)
+Server implementation for this 8 part tutorial: https://blog.apollographql.com/full-stack-react-graphql-tutorial-582ac8d24e3b
 
-An easy way to get started with JavaScript on the command line. [Read more about it](https://www.robinwieruch.de/minimal-node-js-babel-setup).
+The tutorial is outdated, so I couldn't use the code provided verbatim with the latest versions of Apollo Server or Apollo Client, so I made the necessary changes for full compatibility with the latest libraries (as of this writing).
 
-[![Edit minimal-react-webpack-babel-setup](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/rwieruch/minimal-node-application/tree/master/?fontsize=14)
+The client implementation of the same tutorial is available here: https://github.com/johnnyoshika/messenger-graphql-client
 
-## Installation
+Started with Simple Node Application: https://github.com/rwieruch/minimal-node-application
 
-* `git clone git@github.com:rwieruch/minimal-node-application.git`
-* `cd minimal-node-application`
+## Setup
+* Use Node version 8+ (e.g. v8.17.0)
 * `npm install`
+
+## Run
 * `npm start`
-* optional: include *.env* in your *.gitignore*
+* Open http://localhost:8000/graphql
+
+## Client
+* Use [this client](https://github.com/johnnyoshika/messenger-graphql-client) to consume the GraphQL API exposed by this server
