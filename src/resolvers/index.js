@@ -2,7 +2,8 @@ import uuidv4 from 'uuid/v4';
 
 export default {
   Query: {
-    channels: (_, __, { models }) => Object.values(models.channels)
+    channels: (_, __, { models }) => Object.values(models.channels),
+    channel: (_, { id }, { models }) => models.channels[id]
   },
   Mutation: {
     addChannel: (root, { name }, { models }) => {
